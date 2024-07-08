@@ -59,7 +59,6 @@ function checkRegister() {
 
   if (totalCid === changeDue) {
     result.status = 'CLOSED';
-    return;
   }
 
   for (let i = 0; i < reverseCid.length; i += 1) {
@@ -77,4 +76,11 @@ function checkRegister() {
     }
   }
 
+  if (changeDue > 0) {
+    displayChangeDue.innerHTML = "<p>Status: INSUFFICIENT_FUNDS</p>";
+    return;
+  }
+
+  formatResults(result.status, result.change);
 }
+purchaseBtn.addEventListener("click", checkRegister);
