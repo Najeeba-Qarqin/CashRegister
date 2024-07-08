@@ -46,3 +46,33 @@ h1 {
 #cash:hover {
   background-color: black;
 }
+
+#cash:focus {
+  background-color: black;
+}
+
+#change-due {
+  height: 260px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#purchase-btn {
+  box-shadow: 1px 1px 10px white inset;
+  padding: 5px 15px;
+  letter-spacing: 1px;
+  background-color: steelblue;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 11px;
+  transition: 0.4s ease;
+}
+
+#purchase-btn:hover {
+  background-color: black;
+}
