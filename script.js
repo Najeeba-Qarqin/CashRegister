@@ -46,4 +46,10 @@ function checkRegister() {
     return;
   }
 
+  let changeDue = cashValue - price;
+  let result = { status: 'OPEN', change: [] };
+  let reverseCid = [...cid].reverse();
+  let denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
+  let totalCid = cid.reduce((total, denom) => total + denom[1], 0);
+
 }
