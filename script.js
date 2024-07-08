@@ -36,4 +36,14 @@ function checkRegister() {
 
   const cashValue = parseFloat(cash.value);
 
+  if (cashValue < price) {
+    alert("Customer does not have enough money to purchase the item");
+    cash.value = "";
+    return;
+  } else if (cashValue === price) {
+    displayChangeDue.innerHTML = "<p>No change due - customer paid with exact cash</p>";
+    cash.value = "";
+    return;
+  }
+
 }
