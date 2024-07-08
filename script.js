@@ -52,4 +52,14 @@ function checkRegister() {
   let denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
   let totalCid = cid.reduce((total, denom) => total + denom[1], 0);
 
+  if (totalCid < changeDue) {
+    displayChangeDue.innerHTML = "<p>Status: INSUFFICIENT_FUNDS</p>";
+    return;
+  }
+
+  if (totalCid === changeDue) {
+    result.status = 'CLOSED';
+    return;
+  }
+
 }
