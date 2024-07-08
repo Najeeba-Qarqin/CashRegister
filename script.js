@@ -62,4 +62,19 @@ function checkRegister() {
     return;
   }
 
+  for (let i = 0; i < reverseCid.length; i += 1) {
+    if (changeDue >= denominations[i] && changeDue > 0) {
+      let count = 0;
+      let total = reverseCid[i][1];
+      while (total > 0 && changeDue >= denominations[i]) {
+        total -= denominations[i];
+        changeDue = parseFloat((changeDue - denominations[i]).toFixed(2));
+        count++;
+      }
+      if (count > 0) {
+        result.change.push([reverseCid[i][0], count * denominations[i]]);
+      }
+    }
+  }
+
 }
