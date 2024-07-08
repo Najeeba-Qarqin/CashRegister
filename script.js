@@ -3,7 +3,7 @@ const displayChangeDue = document.getElementById("change-due");
 const purchaseBtn = document.getElementById("purchase-btn");
 
 const price = 1.87;
-let cid = [
+const cid = [
   ['PENNY', 1.01],
   ['NICKEL', 2.05],
   ['DIME', 3.1],
@@ -14,3 +14,9 @@ let cid = [
   ['TWENTY', 60],
   ['ONE HUNDRED', 100],
 ];
+
+cash.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    purchaseBtn.click();
+  }
+});
