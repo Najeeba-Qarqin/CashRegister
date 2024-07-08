@@ -15,3 +15,34 @@ body {
   height: 93vh;
   background-color: steelblue;
 }
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 0 44px 44px 0;
+  border-left: 10px double white;
+  background-color: black;
+  width: 92%;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+#cash {
+  border: 1px solid white;
+  box-shadow: 1px 1px 15px white inset;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: steelblue;
+  transition: 0.4s ease;
+}
+
+#cash:hover {
+  background-color: black;
+}
