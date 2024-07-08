@@ -20,3 +20,10 @@ cash.addEventListener('keydown', (e) => {
     purchaseBtn.click();
   }
 });
+
+function formatResults(status, change) {
+  displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
+  change.forEach(
+    money => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
+  );
+}
