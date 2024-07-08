@@ -27,3 +27,13 @@ function formatResults(status, change) {
     money => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
   );
 }
+
+function checkRegister() {
+  if (!cash.value) {
+    displayChangeDue.innerText = '';
+    return null;
+  }
+
+  const cashValue = parseFloat(cash.value);
+
+}
