@@ -93,3 +93,18 @@ h1 {
     width: 70%;
   }
 }
+
+@media (min-width: 900px) {
+  .box {
+    padding: 50px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  #purchase-btn {
+    font-size: 16px;
+  }
+}
