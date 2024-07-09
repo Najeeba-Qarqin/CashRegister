@@ -24,7 +24,7 @@ cash.addEventListener('keydown', (e) => {
 function formatResults(status, change) {
   displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
   change.forEach(
-    (money) => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
+    (money) => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`),
   );
 }
 
@@ -40,7 +40,8 @@ function checkRegister() {
     alert('Customer does not have enough money to purchase the item');
     cash.value = '';
     return true;
-  } else if (cashValue === price) {
+  }
+   if (cashValue === price) {
     displayChangeDue.innerHTML = '<p>No change due - customer paid with exact cash</p>';
     cash.value = '';
     return true;
@@ -78,7 +79,7 @@ function checkRegister() {
 
   if (changeDue > 0) {
     displayChangeDue.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
-    return;
+    return true;
   }
 
   return formatResults(result.status, result.change);
