@@ -1,6 +1,6 @@
-const cash = document.getElementById("cash");
-const displayChangeDue = document.getElementById("change-due");
-const purchaseBtn = document.getElementById("purchase-btn");
+const cash = document.getElementById('cash');
+const displayChangeDue = document.getElementById('change-due');
+const purchaseBtn = document.getElementById('purchase-btn');
 
 const price = 1.87;
 const cid = [
@@ -24,7 +24,7 @@ cash.addEventListener('keydown', (e) => {
 function formatResults(status, change) {
   displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
   change.forEach(
-    money => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
+    (money) => (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
   );
 }
 
@@ -37,24 +37,24 @@ function checkRegister() {
   const cashValue = parseFloat(cash.value);
 
   if (cashValue < price) {
-    alert("Customer does not have enough money to purchase the item");
-    cash.value = "";
-    return;
+    alert('Customer does not have enough money to purchase the item');
+    cash.value = '';
+    return true;
   } else if (cashValue === price) {
-    displayChangeDue.innerHTML = "<p>No change due - customer paid with exact cash</p>";
-    cash.value = "";
-    return;
+    displayChangeDue.innerHTML = '<p>No change due - customer paid with exact cash</p>';
+    cash.value = '';
+    return true;
   }
 
   let changeDue = cashValue - price;
-  let result = { status: 'OPEN', change: [] };
-  let reverseCid = [...cid].reverse();
-  let denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
-  let totalCid = cid.reduce((total, denom) => total + denom[1], 0);
+  const result = { status: 'OPEN', change: [] };
+  const reverseCid = [...cid].reverse();
+  const denominations = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
+  const totalCid = cid.reduce((total, denom) => total + denom[1], 0);
 
   if (totalCid < changeDue) {
-    displayChangeDue.innerHTML = "<p>Status: INSUFFICIENT_FUNDS</p>";
-    return;
+    displayChangeDue.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
+    return true;
   }
 
   if (totalCid === changeDue) {
@@ -68,7 +68,7 @@ function checkRegister() {
       while (total > 0 && changeDue >= denominations[i]) {
         total -= denominations[i];
         changeDue = parseFloat((changeDue - denominations[i]).toFixed(2));
-        count++;
+        count += 1;
       }
       if (count > 0) {
         result.change.push([reverseCid[i][0], count * denominations[i]]);
@@ -77,10 +77,10 @@ function checkRegister() {
   }
 
   if (changeDue > 0) {
-    displayChangeDue.innerHTML = "<p>Status: INSUFFICIENT_FUNDS</p>";
+    displayChangeDue.innerHTML = '<p>Status: INSUFFICIENT_FUNDS</p>';
     return;
   }
 
-  formatResults(result.status, result.change);
+  return formatResults(result.status, result.change);
 }
-purchaseBtn.addEventListener("click", checkRegister);
+purchaseBtn.addEventListener('click', checkRegister);
