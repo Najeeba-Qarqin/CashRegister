@@ -24,7 +24,9 @@ cash.addEventListener('keydown', (e) => {
 function formatResults(status, change) {
   displayChangeDue.innerHTML = `<p>Status: ${status}</p>`;
   change.forEach(
-    (money) => (displayChangeDue.innerHTML = displayChangeDue.innerHTML + `<p>${money[0]}: $${money[1]}</p>`),
+    (money) => {
+      (displayChangeDue.innerHTML += `<p>${money[0]}: $${money[1]}</p>`)
+    }
   );
 }
 
