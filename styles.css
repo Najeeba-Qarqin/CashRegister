@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: white;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 93vh;
+  background-color: steelblue;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 0 44px 44px 0;
+  border-left: 10px double white;
+  background-color: black;
+  width: 92%;
+  font-size: 12px;
+}
+
+h1 {
+  font-size: 20px;
+  margin: 10px;
+}
+
+#cash {
+  border: 1px solid white;
+  box-shadow: 1px 1px 15px white inset;
+  border-radius: 15px;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: steelblue;
+  transition: 0.4s ease;
+}
+
+#cash:hover {
+  background-color: black;
+}
+
+#cash:focus {
+  background-color: black;
+}
+
+#change-due {
+  height: 260px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#purchase-btn {
+  box-shadow: 1px 1px 10px white inset;
+  padding: 5px 15px;
+  letter-spacing: 1px;
+  background-color: steelblue;
+  border: 1px solid white;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 11px;
+  transition: 0.4s ease;
+}
+
+#purchase-btn:hover {
+  background-color: black;
+}
+
+@media (min-width: 700px) {
+  body {
+    height: 100vh;
+    padding: 50px;
+  }
+
+  .box {
+    width: 50%;
+    font-size: 15px;
+  }
+
+  #cash {
+    padding: 14px 20px;
+    width: 70%;
+  }
+}
+
+@media (min-width: 900px) {
+  .box {
+    padding: 50px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  #purchase-btn {
+    font-size: 16px;
+  }
+}
